@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Hire top remote talent or find remote work with SEOMarketplace. Access a pool of experienced professionals to meet your business needs.">
+    <title>SEOMarketplace</title>
+    <link rel="stylesheet" href="styleSEO.css">
+</head>
+<body>
+    <!-- Navbar Section -->
+    <header class="navbar">
+        <div class="logo">
+            <h1>SEOMarketplace</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="login.html" class="login-btn" aria-label="Log in to SEOMarketplace">Log in</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- javascript section -->
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navList = document.querySelector('nav ul');
+    
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('show');
+        });
+    </script>
+    
+
+    <!-- Main Section -->
+    <section class="main">
+        <div class="main-content">
+            <h2>Hire the <span class="highlight">top remote talent</span> effortlessly</h2>
+            <p>
+                Access a pool of experienced professionals to bring your ideas to life. 
+                Post your project, review proposals, and hire the best fit for your business needs.
+            </p>
+            <button class="cta-btn" onclick="window.location.href='register_worker.html';" aria-label="Register as Worker">I want to work</button>
+            <button class="cta-btn" onclick="window.location.href='register_client.html';" aria-label="Register as Hiring Person">I want to hire</button>
+
+        </div>
+        <div class="image-content">
+            <img src="seo.webp" alt="Illustration of hiring process" loading="lazy" />
+
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-links">
+            <ul>
+                <li><a href="about-us.html" aria-label="About Us page">About Us</a></li>
+                <li><a href="contact-us.html" aria-label="Contact Us page">Contact Us</a></li>
+                <li><a href="help-centre.html" aria-label="Help Centre page">Help Centre</a></li>
+                <li><a href="blog.html" aria-label="Visit our Blog">Blog</a></li>
+            </ul>
+        </div>
+        <p>Copyright &copy; 2024 SEOMarketplace. All rights reserved.</p>
+    </footer>
+</body>
+</html>

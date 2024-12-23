@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Registration</title>
+    <link rel="stylesheet" href="styleWorker.css"> <!-- Link to the external CSS -->
+</head>
+<body>
+
+<div class="container">
+    <h2>Worker Registration</h2>
+    <form id="registrationForm" onsubmit="return validateForm()" method="POST" action="registerW.php">
+        
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required>
+            <span id="firstNameError" class="error"></span>
+        </div>
+        
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required>
+            <span id="lastNameError" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Gender</label>
+            <input type="radio" id="male" name="gender" value="Male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="Female">
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" value="Other">
+            <label for="other">Other</label>
+            <span id="genderError" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" name="phone" required>
+            <span id="phoneError" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <span id="emailError" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <span id="passwordError" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <button type="submit">Register</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function validateForm() {
+        // Clear previous error messages
+        clearErrors();
+
+        // Validate first name
+        var firstName = document.getElementById('firstName').value;
+        if (firstName === "") {
+            document.getElementById('firstNameError').innerText = "First name is required.";
+            return false;
+        }
+
+        // Validate last name
+        var lastName = document.getElementById('lastName').value;
+        if (lastName === "") {
+            document.getElementById('lastNameError').innerText = "Last name is required.";
+            return false;
+        }
+
+        // Validate gender
+        var gender = document.querySelector('input[name="gender"]:checked');
+        if (!gender) {
+            document.getElementById('genderError').innerText = "Please select a gender.";
+            return false;
+        }
+
+        // Validate phone number (basic format check)
+        var phone = document.getElementById('phone').value;
+        var phonePattern = /^[0-9]{10}$/;
+        if (!phonePattern.test(phone)) {
+            document.getElementById('phoneError').innerText = "Please enter a valid 10-digit phone number.";
+            return false;
+        }
+
+        // Validate email
+        var email = document.getElementById('email').value;
+        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (!emailPattern.test(email)) {
+            document.getElementById('emailError').innerText = "Please enter a valid email address.";
+            return false;
+        }
+
+        // Validate password (min 6 characters)
+        var password = document.getElementById('password').value;
+        if (password.length < 6) {
+            document.getElementById('passwordError').innerText = "Password must be at least 6 characters long.";
+            return false;
+        }
+
+        return true;
+    }
+
+    function clearErrors() {
+        document.getElementById('firstNameError').innerText = "";
+        document.getElementById('lastNameError').innerText = "";
+        document.getElementById('genderError').innerText = "";
+        document.getElementById('phoneError').innerText = "";
+        document.getElementById('emailError').innerText = "";
+        document.getElementById('passwordError').innerText = "";
+    }
+</script>
+
+
+</body>
+</html>
